@@ -12,29 +12,14 @@
      </div> <!-- .row -->
      <div class="row">
          <div class="col-md-8">
+         @foreach($posts as $post)
             <div class="post">
-                <h3>Post Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, expedita a nihil veritatis, perspiciatis reprehenderit iste fugit, recusandae modi debitis magni? Sit expedita natus aspernatur consequuntur consequatur ad, ipsum impedit...</p>
-                <a href="" class="btn btn-primary">Read More</a>
+                <h3>{{ $post->title }}</h3>
+                <p>{{ substr($post->body, 0, 300)  }}{{ strlen($post->body) > 300 ? "..." : "" }}</p>
+                <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Read More</a>
             </div> <!-- .post -->
             <hr>
-            <div class="post">
-                <h3>Post Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, expedita a nihil veritatis, perspiciatis reprehenderit iste fugit, recusandae modi debitis magni? Sit expedita natus aspernatur consequuntur consequatur ad, ipsum impedit...</p>
-                <a href="" class="btn btn-primary">Read More</a>
-            </div> <!-- .post -->
-             <hr>
-            <div class="post">
-                <h3>Post Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, expedita a nihil veritatis, perspiciatis reprehenderit iste fugit, recusandae modi debitis magni? Sit expedita natus aspernatur consequuntur consequatur ad, ipsum impedit...</p>
-                <a href="" class="btn btn-primary">Read More</a>
-            </div> <!-- .post -->
-            <hr>
-            <div class="post">
-                <h3>Post Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, expedita a nihil veritatis, perspiciatis reprehenderit iste fugit, recusandae modi debitis magni? Sit expedita natus aspernatur consequuntur consequatur ad, ipsum impedit...</p>
-                <a href="" class="btn btn-primary">Read More</a>
-            </div> <!-- .post -->
+            @endforeach
          </div> <!-- .col-md-8 -->
          <div class="col-md-3 col-md-offset-1">
             <h2>Sidebar</h2>

@@ -10,7 +10,8 @@
 		{!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => 'true']) !!}
 		    {{ Form::label('title', 'Title:') }}
 		    {{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'max-length' => '255')) }}
-
+			{{ Form::label('slug', 'Slug:') }}
+			{{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'max-length' => '255') ) }}
 		    {{ Form::label('body', 'Post Body:', array('style' => 'margin-top: 10px;')) }}
 		    {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '')) }}
 

@@ -11,6 +11,9 @@ use Session;
 
 class PostController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -107,7 +110,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'body' => 'required'
         ));
-        } else{
+        } else {
         $this->validate($request, array(
             'title' => 'required|max:255',
             'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
